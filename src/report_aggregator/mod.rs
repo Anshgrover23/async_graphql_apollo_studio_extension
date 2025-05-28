@@ -37,6 +37,7 @@ impl ReportAggregator {
         let (tx, mut rx) = mpsc::channel::<(String, Trace)>(BUFFER_SLOTS);
 
         let reported_header = ReportHeader {
+            agent_id: "async-studio-extension".to_string(),
             uname: uname::uname()
                 .ok()
                 .unwrap_or_else(|| "No uname provided".to_string()),
